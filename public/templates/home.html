@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="col-md-10 col-sm-12">
+		<div class="well">
+			<h2>Welcome to FCC Voting App</h2>
+			<h3>								
+				<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Login 
+					<i class="fa fa-user-o"></i>
+				</button> to see full feature							
+			</h3>			
+			<login-modal></login-modal>			  			  
+		</div>
+		<div class="list-group" ng-repeat="poll in allPolls"  style="margin-bottom:2px;">
+			<a ng-href="/polls/{{poll._id}}" class="list-group-item">{{poll.poll_name}}</a>
+		</div>		
+	</div>
+</div>

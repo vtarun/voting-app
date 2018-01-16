@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<base href="/polls" />
+	<link rel="stylesheet" href="./vendor/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<script src="vendor/angular.js"></script>
+	<script src="vendor/angular-route.js"></script>	
+	<script src="vendor/jquery.min.js"></script>
+	<script src="vendor/bootstrap.min.js"></script>
+	<script src="vendor/ng-google-chart.min.js"></script>
+
+	<script src="./app.js"></script>
+	<script src="js/home-controller.js"></script>
+	<script src="js/mypolls-controller.js"></script>
+	<script src="js/newpoll-controller.js"></script>
+	<script src="js/poll-controller.js"></script>
+</head>
+<body ng-app='myApp'>	
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header" style="margin-left:20%;">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_list" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>      
+	    </div>
+
+	    <div class="collapse navbar-collapse " id="menu_list">      
+	      <ul class="nav navbar-nav" id="navbar-custom-position">       
+	        <li class="navbarFontStyle"><a href="/polls">Home</a></li>
+	        <li class="navbarFontStyle"><a href="/mypolls">My Polls</a></li>
+	        <li class="navbarFontStyle"><a href="/newpoll">New Poll</a></li>        
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li>
+	          <a href="https://www.facebook.com/vivektarun" target="_blank">
+	            <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+	          </a>
+	        </li>        
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>	
+	<ng-view></ng-view>
+	<footer>
+		<h4>create by <code>Vivek Tarun</code></h4>
+	</footer>			
+</body>
+</html>

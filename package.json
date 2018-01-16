@@ -1,0 +1,35 @@
+{
+  "name": "voting-app",
+  "version": "1.0.0",
+  "description": "web application which allows users to create/cast poll.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtarun/voting-app.git"
+  },
+  "author": "vtarun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vtarun/voting-app/issues"
+  },
+  "homepage": "https://github.com/vtarun/voting-app#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "crypto": "^1.0.1",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.0-rc1",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.14.7",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0"
+  }
+}
