@@ -10,7 +10,7 @@ var cookieParser = require('cookie-parser');
 var connectFlash = require('connect-flash');
 var port = process.env.PORT || 3000;
 var app = express();
-var dbUrl = 'mongodb://localhost:27017/polls';
+var dbUrl = 'mongodb://vtarun:123456789@ds121238.mlab.com:21238/vtarun-fcc-poll' || 'mongodb://localhost:27017/polls'  ;
 
 mongoose.connect(dbUrl);
 var db = mongoose.connection;
