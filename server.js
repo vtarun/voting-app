@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var crypto = require('crypto');
-var polls = require('./routes/polls');
+var route = require('./routes/route');
 var cors = require('cors');
 var morgan = require('morgan');
 var passport = require('passport');
@@ -21,9 +21,10 @@ db.on('error', function(err){
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : true}));
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded({extended : false}));
-app.use('/api', polls);
+app.use('/api', route);
 
 app.get('/auth/facebook',
   passport.authenticate('facebook'));
@@ -32,15 +33,12 @@ app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    res.redirect('/polls');
-  });
+    res.redirect('/');
+});
 
 app.get('*', function(req, res){
 	res.sendFile(__dirname + '/public/index.html');
 });
-
-
-
 
 // listen to port 
 app.listen(port, () => {

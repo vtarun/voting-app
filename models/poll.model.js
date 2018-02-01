@@ -6,17 +6,17 @@ var pollSchema = new Schema({
 			type: String , 
 			required : true,
 			unique: true
-				},
-	'poll_options' : [{				
-			option: {
-				type: String,
-				required : true
 			},
-			votes :{
-				default : 0,
-				type : Number
-			}
-				}],				
+	'poll_options' : [{				
+				option: {
+					type: String,
+					required : true
+				},
+				votes :{
+					default : 0,
+					type : Number
+				}
+			}],				
 	'poll_owner' :  {
 			type: String , 
 			require : true

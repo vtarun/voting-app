@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"  aria-expanded="false" aria-label="Toggle navigation" style="">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/allpolls">All Polls<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" ng-if="isLoggedIn">
+        <a class="nav-link" href="/mypolls">My Polls</a>
+      </li>
+      <li class="nav-item" ng-if="isLoggedIn">
+        <a class="nav-link" href=/newpoll>New Poll</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=/tutorial>Tutorial</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0"  ng-if="!isLoggedIn" ng-submit='loginUser()'>
+      <input class="form-control mr-sm-2" type="email" ng-model="user.username" placeholder="email" required>
+      <input class="form-control mr-sm-2" type="password" ng-model="user.password" placeholder="password" required>
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Login</button>
+    </form>
+    <span class="lead" ng-if="isLoggedIn" style="margin-right:34px;">Welcome {{loggedInUser}}</span>
+    <span class="lead" ng-if="isLoggedIn" ng-click="logout()">
+      <i class="fa fa-cog"></i>     
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+</nav>

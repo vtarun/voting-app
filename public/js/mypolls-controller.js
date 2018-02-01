@@ -1,8 +1,10 @@
-fccVote.controller('MypollsController' , function($scope, $http){
+fccVote.controller('MypollsController' , function($scope, $http, $window){
 	
 	$scope.loadMyPolls = function(){
-		$http.get('/api/mypolls/tarun').then(function(response){
+		$http.get('/api/mypolls').then(function(response){
 			$scope.myAllPolls = response.data.result;
+		},function(error){
+			console.log(error.data);
 		});
 	};
 

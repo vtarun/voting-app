@@ -1,0 +1,7 @@
+<div style="padding-top:40px;padding-left:40px;overflow-x: hidden;">  	
+	<h1 class="display-4">All Polls</h1>
+	<hr class="my-4">
+	<div class="col-sm-10" ng-repeat="poll in allPolls"  style="margin-bottom:8px;min-height:34px;padding-left:20px;">
+		<a ng-href="/polls/{{poll._id}}" class="list-group-item" style="padding-top:5px;height:34px;">{{poll.poll_name}}</a>		
+	</div>	 
+</div>

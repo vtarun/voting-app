@@ -1,4 +1,4 @@
-fccVote.controller('PollController', function($scope, $http, $routeParams){
+fccVote.controller('PollController', function($scope, $http, $routeParams, $window){
 	$scope.test = 'Poll controller is working';
 	$scope.selectedOption = null;
     $scope.poll = {};
@@ -6,7 +6,7 @@ fccVote.controller('PollController', function($scope, $http, $routeParams){
     $scope.myChartObject = {};    
     $scope.myChartObject.type = "PieChart";
     $scope.myChartObject.options = {
-        'title': 'How Much Pizza I Ate Last Night',
+        'title': 'How many votes!!',
         is3D:true,
     };
     $scope.myChartObject.data = {};
@@ -33,12 +33,20 @@ fccVote.controller('PollController', function($scope, $http, $routeParams){
 	};
 
 	$scope.load();
+    
+    $scope.hideError = function(){
+        if($scope.error){
+            $scope.error = !$scope.error;
+        }
+    };
 
 	$scope.submit = function(){
-		$http.post('/api/vote', {'id' : $routeParams.id, 'choosed_option' : $scope.selectedOption}).then(function(response){
-			console.table(response.data.result);            
+        var user = $window.localStorage.user || null;
+		$http.post('/api/vote', {'id' : $routeParams.id, 'choosed_option' : $scope.selectedOption, 'user' : user}).then(function(response){			           
             $scope.load();
-		});		
+		}, function(error){
+            $scope.error = error.data;
+        });		
 	};    
 });
 

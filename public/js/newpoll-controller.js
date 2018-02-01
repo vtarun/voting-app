@@ -1,9 +1,9 @@
 fccVote.controller('NewpollController' , function($scope, $http, $location){	
 	$scope.poll = {};
 	$scope.tempPollOption = null;
+	$scope.error = null;
 	$scope.poll.pollName = null;
 	$scope.poll.pollOptions = [];
-	$scope.poll.pollOwner = 'tarun';
 
 	var flage = false;
 
@@ -25,9 +25,16 @@ fccVote.controller('NewpollController' , function($scope, $http, $location){
 
 	$scope.createPoll = function(){
 		$http.post('/api/newpoll', $scope.poll).then(function(response){			
-			$location.path('/polls/'+response.data.result._id)
+			// $location.path('/allpolls/'+response.data.result._id);
+			$location.path('/allpolls');
 		},function(error){
-		console.log(error.data);
+			$scope.error = error.data;
 		});
 	};
+
+	$scope.hideError = function(){
+		if($scope.error){
+			$scope.error = !$scope.error;
+		}
+	}
 });
